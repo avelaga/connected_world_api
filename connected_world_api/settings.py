@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-d36_c@cnxyvg$ed%-jq-y^ibveib+&%8h$^j_26(tgs3=e2esf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'clicks.apps.ClicksConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'connected_world_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'connected_world',
+        'USER': 'root',
+        'PASSWORD': 'supersecret',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
