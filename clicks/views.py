@@ -10,6 +10,12 @@ def index(request):
   return HttpResponse("heellloooOOOOOOO")
 
 @csrf_exempt
+def all(request):
+  allClicks = list(Click.objects.values())
+  print(allClicks)
+  return JsonResponse(allClicks, safe=False, status=200)
+
+@csrf_exempt
 def new(request):
   errorMessage = validInput(request)
   if len(errorMessage) > 0:
@@ -17,7 +23,6 @@ def new(request):
     error["message"] = errorMessage
     return JsonResponse(error, status=400)
 
-  print("NO ERRORS")
   data = request.body.decode('utf-8')
   data_json = json.loads(data)
 
@@ -32,7 +37,6 @@ def validInput(request):
 
     if len(data) == 0:
       return "fields cannot be empty."
-    print(data_json)
     requestFields = data_json.keys()
     expectedFields = ["x", "y", "hue"]
     diff = requestFields - expectedFields
