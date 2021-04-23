@@ -5,15 +5,17 @@ from .models import Click
 
 import json
 
+fakeDB = [{'date':"02-02-2021", 'time':"05:45:32", 'x':1, 'y':2, 'hue':255}]
+
 @csrf_exempt
 def index(request):
   return HttpResponse("heellloooOOOOOOO")
 
 @csrf_exempt
 def all(request):
-  allClicks = list(Click.objects.values())
-  print(allClicks)
-  return JsonResponse(allClicks, safe=False, status=200)
+  # allClicks = list(Click.objects.values())
+  # print(allClicks)
+  return JsonResponse(fakeDB, safe=False, status=200)
 
 @csrf_exempt
 def new(request):
@@ -26,8 +28,11 @@ def new(request):
   data = request.body.decode('utf-8')
   data_json = json.loads(data)
 
-  click = Click(x=data_json['x'], y=data_json['y'],hue=data_json['hue'])
-  click.save()
+  # click = Click(x=data_json['x'], y=data_json['y'],hue=data_json['hue'])
+  # click.save()
+  newData = {'date':"", 'time':"", 'x':data_json['x'], 'y':data_json['y'], 'hue':data_json['hue']}
+  fakeDB.append(newData)
+  print(fakeDB)
   return HttpResponse("added!")
 
 def validInput(request):

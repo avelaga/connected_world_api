@@ -15,3 +15,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 
 sudo systemctl start docker
+
+
+sudo yum install python3.7
+curl -O https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py --user
