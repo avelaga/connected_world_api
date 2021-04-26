@@ -46,3 +46,7 @@ View networks:
 
 Bring services down:
 `docker-compose down`
+
+
+create sym link for init script to find coekr compose:
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
