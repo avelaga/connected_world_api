@@ -20,3 +20,12 @@ sudo systemctl start docker
 sudo yum install python3.7
 curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --user
+
+sudo yum install -y git
+git clone https://github.com/avelaga/connected_world_api.git
+sudo yum install python3.7
+curl -O https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py --user
+pip3 install -r requirements.txt
+
+
