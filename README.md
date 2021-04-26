@@ -28,4 +28,21 @@ curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --user
 pip3 install -r requirements.txt
 
+# Usage
 
+Run services in the background:
+`docker-compose up -d`
+
+Run services in the foreground:
+`docker-compose up --build`
+
+Inspect volume:
+`docker volume ls`
+and
+`docker volume inspect <volume name>`
+
+View networks:
+`docker network ls`
+
+Bring services down:
+`docker-compose down`
